@@ -20,8 +20,11 @@ class Submission {
       console.log('ERROR IN EXECUTING TASK', err);
       return 'ERROR IN EXECUTING TASK' + err;
     }
-  }
-    
+    // Since audits are typically repitition of the same process to verify a result, 
+    // it can help to import a sub-module that pushes a submission object or hash to the namespaceWrapper.getStore() 
+    // as long as this works, the task runtime that you import will produce a submission object in @fetchSubmission   }
+    // ex: someModule.startTask()
+
   /**
    * Submits a task for a given round
    *
