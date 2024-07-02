@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 const { KoiiStorageClient } = require('@_koii/storage-task-sdk');
 const { addSubmission } = require('./supabase');
+const { namespaceWrapper } = require('./../_koiiNode/koiiNode');
 
 (async () => {
   try {
@@ -51,14 +52,16 @@ const { addSubmission } = require('./supabase');
       );
     }, containerId);
 
-    // Log the lists to the console
-    console.log('Most viewed:', lists[0]);
-    console.log('Most read:', lists[1]);
+    let signed = await namespaceWrapper.payloadSigning(JSON.stringify(lists[0]) + JSON.stringify(lists[1]));
 
-    addSubmission('your-node-id', 1, lists[0], lists[1], 'your-signature-here');
+    // console.log('Most viewed:', lists[0]);
+    // console.log('Most read:', lists[1]);
+    // console.log(signed);
+
+    addSubmission(await namespaceWrapper.getSubmitterAccount(), 2, lists[0], lists[1], signed);
 
     // Close the browser
-    // await browser.close();
+    await browser.close();
   } catch (error) {
     console.error('Error:', error);
   }
