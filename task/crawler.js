@@ -62,6 +62,9 @@ const { namespaceWrapper } = require('./../_koiiNode/koiiNode');
 
     // Close the browser
     await browser.close();
+
+    process.exit(); // Mars: for some reason it wasn't closing properly otherwise
+
   } catch (error) {
     console.error('Error:', error);
   }
