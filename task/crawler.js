@@ -1,4 +1,6 @@
 const puppeteer = require('puppeteer');
+const { KoiiStorageClient } = require('@_koii/storage-task-sdk');
+const { addSubmission } = require('./supabase');
 
 (async () => {
   try {
@@ -30,7 +32,7 @@ const puppeteer = require('puppeteer');
     // Wait for the container to be fully loaded
     await page.waitForSelector(containerId, { timeout: 60000 }); // 60 seconds timeout
 
-    // Find the <ol> elements and list the items within them
+    // Find the <ol> elements and list the items within them, removing "live" if it starts with it
     const lists = await page.evaluate((containerId) => {
       const container = document.querySelector(containerId);
       if (!container) return null;
@@ -39,12 +41,21 @@ const puppeteer = require('puppeteer');
       if (olElements.length < 2) return 'Less than two <ol> elements found';
 
       return Array.from(olElements).slice(0, 2).map(ol => 
-        Array.from(ol.querySelectorAll('li')).map(li => li.textContent.trim())
+        Array.from(ol.querySelectorAll('li')).map(li => {
+          let text = li.textContent.trim();
+          if (text.toLowerCase().startsWith('live')) {
+            text = text.slice(4).trim(); // Remove "live" and trim any leading whitespace
+          }
+          return text;
+        })
       );
     }, containerId);
 
     // Log the lists to the console
-    console.log('Lists within <ol> elements:', lists);
+    console.log('Most viewed:', lists[0]);
+    console.log('Most read:', lists[1]);
+
+    addSubmission('your-node-id', 1, lists[0], lists[1], 'your-signature-here');
 
     // Close the browser
     // await browser.close();
