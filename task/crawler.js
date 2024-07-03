@@ -39,30 +39,46 @@ const { namespaceWrapper } = require('./../_koiiNode/koiiNode');
       if (!container) return null;
 
       const olElements = container.querySelectorAll('ol');
-      if (olElements.length < 2) return 'Less than two <ol> elements found';
+      if (olElements.length !== 2) return 'Other number than exactly two <ol> elements found';
 
-      return Array.from(olElements).slice(0, 2).map(ol => 
+      return Array.from(olElements).map(ol => 
         Array.from(ol.querySelectorAll('li')).map(li => {
           let text = li.textContent.trim();
           if (text.toLowerCase().startsWith('live')) {
             text = text.slice(4).trim(); // Remove "live" and trim any leading whitespace
           }
-          return text;
+
+          const linkElement = li.querySelector('a');
+          const link = linkElement ? linkElement.href : null;
+
+          return { text, link };
         })
       );
     }, containerId);
 
-    let signed = await namespaceWrapper.payloadSigning(JSON.stringify(lists[0]) + JSON.stringify(lists[1]));
 
-    // console.log('Most viewed:', lists[0]);
-    // console.log('Most read:', lists[1]);
-    // console.log(signed);
+
+    // The DOM extraction code is a little bit tricky. Could have returned it in a better format, easier to reformat after the fact
+    let mostViewedTitle = [];
+    let mostViewedLink  = [];
+    let mostReadTitle   = [];
+    let mostReadLink    = [];
+    for (let i=0; i<10; i++) { // On Guardian website there are always exactly 10 links
+      mostViewedTitle.push(lists[0][i].text);
+      mostViewedLink .push(lists[0][i].link);
+      mostReadTitle  .push(lists[1][i].text);
+      mostReadLink   .push(lists[1][i].link);
+    }
+
+    console.log(mostViewedTitle, mostViewedLink, mostReadTitle, mostViewedLink);
+
+    let signed = await namespaceWrapper.payloadSigning(JSON.stringify(mostViewedTitle) + JSON.stringify(mostViewedLink) + JSON.stringify(mostReadTitle) + JSON.stringify(mostReadLink));
 
     let publicKey = (await namespaceWrapper.getSubmitterAccount()).publicKey;
 
     console.log("public key: " + publicKey);
 
-    await addSubmission(publicKey, 2, lists[0], lists[1], signed);
+    await addSubmission(publicKey, 2, mostViewedTitle, mostViewedLink, mostReadTitle, mostReadLink, signed);
 
     // await browser.close();
     // process.exit(); // Mars: for some reason it wasn't closing properly otherwise
