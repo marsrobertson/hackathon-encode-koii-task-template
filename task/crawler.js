@@ -58,12 +58,14 @@ const { namespaceWrapper } = require('./../_koiiNode/koiiNode');
     // console.log('Most read:', lists[1]);
     // console.log(signed);
 
-    addSubmission(await namespaceWrapper.getSubmitterAccount(), 2, lists[0], lists[1], signed);
+    let publicKey = (await namespaceWrapper.getSubmitterAccount()).publicKey;
 
-    // Close the browser
-    await browser.close();
+    console.log("public key: " + publicKey);
 
-    process.exit(); // Mars: for some reason it wasn't closing properly otherwise
+    await addSubmission(publicKey, 2, lists[0], lists[1], signed);
+
+    // await browser.close();
+    // process.exit(); // Mars: for some reason it wasn't closing properly otherwise
 
   } catch (error) {
     console.error('Error:', error);
