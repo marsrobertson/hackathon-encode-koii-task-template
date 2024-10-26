@@ -83,6 +83,32 @@
         <input type="submit" ng-click="submit()">
       </div>
 
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <div class="question" style="padding: 40px">
+
+        <img src="images/kamala.png" height=100 style="margin-left:-40px;">
+        <img src="images/trump.png"  height=90 style="margin-left:200px;">
+        <br>
+
+        <span class="tobottom">
+            <input type="range" min="-5" max="5" ng-model="sliderValue2" ng-change="change()" style="width:400px;">
+        </span>
+        <span class="tobottom">
+            <span class="label-small" ng-if="!sliderTouched">move the slider to decide</span>
+            <span class="label" ng-if="sliderTouched">{{sliderValue}}</span>
+        </span>
+
+        <br><br>
+
+        <input type="submit" ng-click="submit()">
+      </div>
+
+
+
     </script>
 
     <script type="text/ng-template" id="login.html">
