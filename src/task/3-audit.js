@@ -1,4 +1,4 @@
-import { getFileBlob } from "../../../Lesson 2/file-sharing/task/fileUtils.js";
+import { getFileBlob } from "./fileUtils.js";
 
 export async function audit(submission, roundNumber, submitterKey) {
   /**
