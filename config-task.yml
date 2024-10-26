@@ -70,7 +70,8 @@ token_type: "E3sRZP2TyxtBVGECfrfKpWSS95DjcKxzgHXV56FPWRyc" # https://explorer.ko
 ## Total Bounty Amount ##
 # The total bounty amount that will be available for distribution over all rounds.
 # Does nothing when updating a task.
-total_bounty_amount: 400000000 # 400m
+# total_bounty_amount: 400000000 # 400m
+total_bounty_amount: 400 # 400
 
 ## Bounty Amount per Round ##
 # The maximum amount that can be distributed per round.
@@ -112,7 +113,7 @@ tags: ["Witness", "Data Gathering", "Justice", "DeSci", "Social Experiment", "Hu
 # Environment ##
 # TEST or PRODUCTION
 # Production mode will expose your task to all the task runners, even if not whitelisted.
-environment: "PRODUCTION" # TEST IN PROD YOLO
+environment: "TEST" # TEST IN PROD YOLO
 
 #################################### FOR UPDATING TASKS ONLY ####################################
 
