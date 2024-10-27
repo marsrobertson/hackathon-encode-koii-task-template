@@ -1,6 +1,6 @@
 import { namespaceWrapper } from "@_koii/namespace-wrapper";
 import { storeFile } from "./fileUtils.js";
-import { crawl } from "./crawler.js";
+// import { crawl } from "./crawler.js";
 import { crawl } from "./crawler-custom.js";
 
 export async function task(roundNumber) {
