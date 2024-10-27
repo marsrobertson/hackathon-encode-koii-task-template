@@ -28,6 +28,7 @@ Full stack of KOII technologies.
 During the process we ironed out some kinks and provided valuable feedback to the core developers. 
 
 ✅ Deployed task on KOII.
+
 ✅ Used the KPL token.
 
 Thank you for the ongoing help and support.
