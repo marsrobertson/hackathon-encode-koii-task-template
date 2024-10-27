@@ -1,3 +1,12 @@
+# Independent Tribunal
+
+Encode Hack London. KOII track. Using 90k blockchain nodes to ask humans: what do you think? Who is more right? Which option do you choose? Which option is better.
+
+Platform to run a variety of DeSci (decentralised science) experiments, including subjective opinion polling, with built in $JUST incentives. 
+
+
+---
+
 # Koii Task Template
 
 ## Development Guide

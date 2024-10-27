@@ -113,12 +113,13 @@ tags: ["Witness", "Data Gathering", "Justice", "DeSci", "Social Experiment", "Hu
 # Environment ##
 # TEST or PRODUCTION
 # Production mode will expose your task to all the task runners, even if not whitelisted.
-environment: "TEST" # TEST IN PROD YOLO
+environment: "PRODUCTION" # TEST IN PROD YOLO
 
 #################################### FOR UPDATING TASKS ONLY ####################################
 
 ## Old Task ID ##
-task_id: "BjksKx1mZDx13GxLU14PG2hi5gJvCpadvxGNbkQetqEJ"
+task_id: 
+# "BjksKx1mZDx13GxLU14PG2hi5gJvCpadvxGNbkQetqEJ"
 
 ## Migration Description ##
 migrationDescription: "Making rounds shorter"
