@@ -29,7 +29,9 @@
       app.controller("HomeCtrl", function($scope, $http, $location, $window) {
 
         const user = $location.search().user;
-        console.log('User:', user);  // Output: 'Mars'
+        console.log('User:', user); 
+
+        $scope.state = 'initial';
 
         $scope.sliderValue = 0;
         $scope.sliderValue2 = 0;
@@ -54,6 +56,8 @@
           console.log("Submit clicked: ", data);
 
           $window.addData(data);
+
+          $scope.state = 'submitted';
 
           // const payload = {
           //   sliderValue: $scope.sliderValue
@@ -82,6 +86,7 @@
 
     <script type="text/ng-template" id="home.html">
 
+      <span ng-show="state === 'initial'"> 
       <div class="question" style="padding: 40px">
 
         <img src="images/pepsi.png" height=100 style="margin-left:-40px;">
@@ -110,7 +115,7 @@
 
       <div class="question" style="padding: 40px">
 
-        <img src="images/kamala.png" height=100 style="margin-left:-40px;">
+        <img src="images/kamala.png" height=100 style="margin-left:-10px;">
         <img src="images/trump.png"  height=90 style="margin-left:200px;">
         <br>
 
@@ -134,7 +139,7 @@
 
       <div class="question" style="padding: 40px">
 
-        <img src="images/she.png" height=100 style="margin-left:-40px;">
+        <img src="images/she.png" height=100 style="margin-left:-10px;">
         <img src="images/he.png"  height=90 style="margin-left:200px;">
         <br>
 
@@ -156,7 +161,12 @@
       <br>
       <br>
 
-      <input type="submit" ng-click="submit()">
+      <input type="submit" ng-click="submit()" style="margin-left: 200px">
+      </span>
+    
+      <span ng-show="state === 'submitted'"> 
+        <h1>Thank you!</h1>
+      </span>
 
 
 
@@ -200,12 +210,10 @@
 
         try {
             const docRef = await addDoc(collection(db, "myCollection"), {
-                name: "Mars",
-                age: 30,
-                city: "Lisbon"
+              responses: data
             });
             console.log("Document written with ID: ", docRef.id);
-            alert("Data added successfully!");
+            // alert("Data added successfully!");
         } catch (e) {
             console.error("Error adding document: ", e);
         }
