@@ -18,7 +18,14 @@ We can resolve all the disputes and enable Global Peace 🕊️
 * https://docs.google.com/presentation/d/1qP2fP8nOJUQwazY1nr9hAJidjgeBJaPyg96XwaQtqCc/edit?usp=sharing
 * https://youtu.be/Ezq1JwyJ0IA
   
-Full stack of KOII technologies. Node. Task template. CLI. IPFS nodes. KPL token creation. During the process we ironed out some kinks and provided valuable feedback to the core developers. T
+Full stack of KOII technologies.
+* Node.
+* Task template.
+* CLI.
+* IPFS nodes.
+* KPL token creation.
+
+During the process we ironed out some kinks and provided valuable feedback to the core developers. 
 
 ✅ Deployed task on KOII.
 ✅ Used the KPL token.
