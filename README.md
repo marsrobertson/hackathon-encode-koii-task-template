@@ -2,26 +2,28 @@
 
 Encode Hack London. KOII track. Using 90k blockchain nodes to ask humans: what do you think? Who is more right? Which option do you choose? Which option is better?
 
-Platform to run a variety of DeSci (decentralised science) experiments, including subjective opinion polling, with built in $JUST incentives. 
+Platform to run a variety of DeSci (decentralised science) experiments, including subjective opinion polling, with built in $JUST incentives. 8 billion $JUST tokens, one for each human.
 
-Justice.
-Fairness.
-Independent Tribunal.
+* Justice.
+* Fairness.
+* Independent Tribunal.
+
 Multiple independent data points, coming from real humans.
-Incentives. 
-8 billion $JUST tokens, one for each human.
+
 We can resolve all the disputes and enable Global Peace 🕊️
+
+![](https://i.imgur.com/RMx7rAD.png)
 
 * https://marsrobertson.com/hack
 * https://docs.google.com/presentation/d/1qP2fP8nOJUQwazY1nr9hAJidjgeBJaPyg96XwaQtqCc/edit?usp=sharing
-
-
+* https://youtu.be/Ezq1JwyJ0IA
+  
 Full stack of KOII technologies. Node. Task template. CLI. IPFS nodes. KPL token creation. During the process we ironed out some kinks and provided valuable feedback to the core developers. T
 
 ✅ Deployed task on KOII.
 ✅ Used the KPL token.
 
-Thank you for the support.
+Thank you for the ongoing help and support.
 
 ---
 
